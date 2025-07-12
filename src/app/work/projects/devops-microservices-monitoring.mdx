@@ -1,0 +1,309 @@
+---
+title: "DevOps Infrastructure with Docker & Monitoring"
+publishedAt: "2024-06-10"
+summary: "Comprehensive DevOps project featuring microservices architecture, CI/CD pipelines, containerization with Docker, and monitoring stack with Grafana, Prometheus, and Loki."
+image: "/images/projects/project-01/cover-03.jpg"
+---
+
+## Project Overview
+
+This advanced DevOps project demonstrates modern infrastructure practices learned during my computer science studies, combining containerization, microservices architecture, automated pipelines, and comprehensive monitoring solutions.
+
+## Architecture Overview
+
+### Microservices Design
+- **Service Separation**: Independent, loosely-coupled services
+- **API Gateway**: Centralized routing and authentication
+- **Service Discovery**: Automatic service registration and discovery
+- **Load Balancing**: Traffic distribution across service instances
+
+### Infrastructure Components
+- **Containerization**: Docker for consistent deployment environments
+- **Orchestration**: Docker Compose for multi-container applications
+- **Monitoring**: Comprehensive observability stack
+- **CI/CD**: Automated testing and deployment pipelines
+
+## Technology Stack
+
+### Containerization & Orchestration
+- **Docker**: Container runtime and image management
+- **Docker Compose**: Multi-container application orchestration
+- **Docker Registry**: Private image repository management
+
+### Monitoring & Observability
+- **Prometheus**: Metrics collection and alerting
+- **Grafana**: Visualization and dashboard creation
+- **Loki**: Centralized log aggregation and analysis
+- **Node Exporter**: System metrics collection
+
+### CI/CD Pipeline
+- **GitHub Actions**: Automated workflows and deployment
+- **Docker Build**: Automated image building and testing
+- **Registry Push**: Automated image publishing
+- **Deployment Automation**: Zero-downtime deployments
+
+## Microservices Implementation
+
+### Service Architecture
+```yaml
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVICE_DISCOVERY_URL=http://consul:8500
+    depends_on:
+      - consul
+      - user-service
+      - product-service
+
+  user-service:
+    build: ./user-service
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=users
+    depends_on:
+      - postgres
+
+  product-service:
+    build: ./product-service
+    environment:
+      - DB_HOST=mongodb
+      - DB_NAME=products
+    depends_on:
+      - mongodb
+```
+
+### Service Communication
+- **REST APIs**: HTTP-based service communication
+- **Message Queues**: Asynchronous communication with Redis
+- **Service Mesh**: Inter-service communication management
+- **Circuit Breakers**: Fault tolerance and resilience patterns
+
+## Docker Implementation
+
+### Containerization Strategy
+```dockerfile
+# Multi-stage build for optimized images
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+FROM node:18-alpine AS runtime
+WORKDIR /app
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+### Container Optimization
+- **Multi-stage Builds**: Reduced image sizes
+- **Layer Caching**: Optimized build performance
+- **Security Scanning**: Vulnerability assessment
+- **Resource Limits**: Memory and CPU constraints
+
+## Monitoring Stack
+
+### Prometheus Configuration
+```yaml
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'microservices'
+    static_configs:
+      - targets: ['user-service:3000', 'product-service:3001']
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+```
+
+### Grafana Dashboards
+- **System Metrics**: CPU, memory, disk, and network usage
+- **Application Metrics**: Request rates, response times, error rates
+- **Business Metrics**: User activity, transaction volumes
+- **Infrastructure Health**: Container status and resource utilization
+
+### Loki Log Management
+```yaml
+server:
+  http_listen_port: 3100
+
+ingester:
+  lifecycler:
+    address: 127.0.0.1
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+
+schema_config:
+  configs:
+    - from: 2020-10-24
+      store: boltdb-shipper
+      object_store: filesystem
+      schema: v11
+```
+
+## CI/CD Pipeline
+
+### GitHub Actions Workflow
+```yaml
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Tests
+        run: |
+          docker-compose -f docker-compose.test.yml up --abort-on-container-exit
+          
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and Push Images
+        run: |
+          docker build -t myapp:${{ github.sha }} .
+          docker push myregistry/myapp:${{ github.sha }}
+          
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to Production
+        run: |
+          docker-compose -f docker-compose.prod.yml up -d
+```
+
+### Pipeline Features
+- **Automated Testing**: Unit and integration tests
+- **Code Quality Checks**: Linting and security scanning
+- **Image Building**: Automated Docker image creation
+- **Deployment Automation**: Zero-downtime rolling deployments
+
+## Key Features Implemented
+
+### 1. **Service Discovery**
+- **Consul Integration**: Automatic service registration
+- **Health Checks**: Service health monitoring
+- **Load Balancing**: Traffic distribution
+- **Failover Handling**: Automatic failover mechanisms
+
+### 2. **Centralized Logging**
+- **Log Aggregation**: Collecting logs from all services
+- **Structured Logging**: JSON-formatted log entries
+- **Log Retention**: Automated log rotation and cleanup
+- **Search Capabilities**: Full-text log search with Loki
+
+### 3. **Metrics Collection**
+- **Application Metrics**: Custom business metrics
+- **Infrastructure Metrics**: System performance data
+- **Real-time Monitoring**: Live metric streaming
+- **Alerting Rules**: Automated alert generation
+
+### 4. **Security Implementation**
+- **Container Security**: Vulnerability scanning
+- **Network Policies**: Service-to-service communication rules
+- **Secrets Management**: Secure configuration handling
+- **Access Control**: Role-based permissions
+
+## Performance Optimization
+
+### Container Performance
+- **Resource Limits**: Preventing resource contention
+- **Image Optimization**: Minimal base images
+- **Startup Optimization**: Faster container startup times
+- **Memory Management**: Efficient memory usage
+
+### Monitoring Performance
+- **Metric Retention**: Optimized storage policies
+- **Query Optimization**: Efficient PromQL queries
+- **Dashboard Performance**: Optimized visualization loading
+- **Alert Efficiency**: Reduced false positive alerts
+
+## Learning Outcomes
+
+### DevOps Concepts
+- **Infrastructure as Code**: Declarative infrastructure management
+- **Continuous Integration**: Automated testing and validation
+- **Continuous Deployment**: Automated release processes
+- **Monitoring & Observability**: Comprehensive system visibility
+
+### Technical Skills
+- **Container Orchestration**: Multi-container application management
+- **Microservices Patterns**: Service design and communication
+- **Monitoring Tools**: Prometheus, Grafana, and Loki expertise
+- **Pipeline Development**: CI/CD workflow creation
+
+## Challenges Overcome
+
+### 1. **Service Communication**
+**Challenge**: Complex inter-service communication and discovery
+**Solution**: Implemented service mesh with Consul for discovery
+
+### 2. **Monitoring Complexity**
+**Challenge**: Collecting and correlating metrics from multiple services
+**Solution**: Standardized metrics format and centralized collection
+
+### 3. **Pipeline Reliability**
+**Challenge**: Ensuring consistent and reliable deployments
+**Solution**: Comprehensive testing and rollback strategies
+
+## Future Enhancements
+
+### Scalability Improvements
+- **Kubernetes Migration**: Container orchestration at scale
+- **Auto-scaling**: Dynamic resource allocation
+- **Multi-cloud Deployment**: Cloud provider redundancy
+- **Edge Computing**: Distributed service deployment
+
+### Security Enhancements
+- **Zero Trust Architecture**: Enhanced security model
+- **Compliance Automation**: Automated security compliance
+- **Threat Detection**: Real-time security monitoring
+- **Backup Strategies**: Disaster recovery planning
+
+## Real-World Applications
+
+This project demonstrates enterprise-level DevOps practices applicable to:
+- **E-commerce Platforms**: High-availability online stores
+- **Financial Services**: Secure, monitored transaction systems
+- **Healthcare Systems**: Compliant, reliable medical applications
+- **Educational Platforms**: Scalable learning management systems
+
+## Repository & Documentation
+
+Complete project available on [GitHub](https://github.com/fairulmuhammad/devops-microservices), including:
+- **Infrastructure Code**: Docker Compose files and configurations
+- **Monitoring Configs**: Prometheus, Grafana, and Loki setups
+- **CI/CD Pipelines**: GitHub Actions workflows
+- **Documentation**: Setup guides and best practices
+- **Examples**: Sample applications and use cases
+
+## Reflection
+
+This DevOps project significantly advanced my understanding of:
+- **Modern Infrastructure**: Cloud-native application deployment
+- **Automation Benefits**: Reduced manual processes and human error
+- **Observability Importance**: Proactive system monitoring and maintenance
+- **Scalability Challenges**: Designing for growth and reliability
+
+The hands-on experience with these tools prepared me for real-world DevOps engineering roles and demonstrated my ability to work with complex, distributed systems.

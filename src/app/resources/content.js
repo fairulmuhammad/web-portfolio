@@ -1,25 +1,25 @@
 import { Logo } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "fairul", // Ganti dengan nama depan Anda
+  lastName: "muhammad", // Ganti dengan nama belakang Anda
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  role: "Computer Science Student", 
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "muhammadfairul13@gmail.com", // Ganti dengan email Anda
+  location: "Asia/Jakarta", // Jakarta timezone (same as Yogyakarta)
+  languages: ["Indonesian", "English"], 
 };
 
 const newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  display: false, // Set to true if you want to start a newsletter later
+  title: <>Subscribe to {person.firstName}'s Learning Updates</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      Follow my journey as I learn new technologies, work on projects, and share insights 
+      about programming and software development.
     </>
   ),
 };
@@ -30,17 +30,17 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/fairulmuhammad", // Replace with your GitHub
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/muhammad-fairul-b5aa37312/", // Replace with your LinkedIn
   },
   {
     name: "X",
     icon: "x",
-    link: "",
+    link: "https://x.com/yourusername", // Replace with your X/Twitter
   },
   {
     name: "Email",
@@ -54,17 +54,17 @@ const home = {
   image: "/images/og/home.jpg",
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  description: `Portfolio website showcasing my learning journey as a ${person.role}`,
+  headline: <>Building digital solutions through code and curiosity</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
-    href: "/work/building-once-ui-a-customizable-design-system",
+    title: <>Latest: <strong className="ml-4">DevOps & Microservices Projects</strong></>,
+    href: "/work/my-learning-journey",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon={false} style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm {person.firstName}, a Computer Science student at Universitas Amikom Yogyakarta with hands-on experience in 
+      <br /> web development, Python programming, and modern DevOps practices.
     </>
   ),
 };
@@ -82,7 +82,7 @@ const about = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false, // Set to true if you want to enable appointment scheduling
     link: "https://cal.com",
   },
   intro: {
@@ -90,52 +90,78 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I'm a Computer Science student at Universitas Amikom Yogyakarta with a deep passion for 
+        programming and technology. I enjoy exploring various aspects of software development 
+        including front-end, back-end, and DevOps. My curiosity drives me to continuously learn 
+        new technologies and apply them to solve real-world problems through academic projects 
+        and personal experiments.
       </>
     ),
   },
   work: {
     display: true, // set to false to hide this section
-    title: "Work Experience",
+    title: "Learning & Projects",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Front-End Development",
+        timeframe: "2023 - Present",
+        role: "Web Development Learning",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Mastered core web technologies including HTML5, CSS3, and modern JavaScript 
+            for building responsive and interactive user interfaces.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Gained experience with PHP web development using CodeIgniter 3 framework 
+            for server-side programming and MVC architecture implementation.
+          </>,
+          <>
+            Built various web projects combining front-end and back-end technologies 
+            to create full-featured web applications.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "DevOps & Infrastructure",
+        timeframe: "2024 - Present", 
+        role: "DevOps Learning Journey",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Developed hands-on experience with microservices architecture, designing and 
+            implementing distributed systems using containerization technologies.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Built CI/CD pipelines for automated testing and deployment, learning modern 
+            software delivery practices and workflow automation.
+          </>,
+          <>
+            Implemented monitoring and observability solutions using Grafana, Prometheus, 
+            and Loki for system performance tracking and log management.
+          </>,
+          <>
+            Containerized applications using Docker, gaining experience with container 
+            orchestration and deployment strategies.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Python & Database Development",
+        timeframe: "2023 - Present",
+        role: "Programming & Data Management",
+        achievements: [
+          <>
+            Created Python applications including a simple calculator system, demonstrating 
+            proficiency in Python programming fundamentals and problem-solving.
+          </>,
+          <>
+            Learned database management with MySQL, understanding relational database design, 
+            queries, and data manipulation for web applications.
+          </>,
+          <>
+            Integrated Python scripts with database systems for data processing and 
+            automation tasks in various academic projects.
           </>,
         ],
         images: [],
@@ -144,53 +170,37 @@ const about = {
   },
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Education",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Universitas Amikom Yogyakarta",
+        description: <>Currently pursuing Bachelor's degree in Computer Science (Teknik Informatika), focusing on software engineering and modern web technologies.</>,
       },
     ],
   },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Technical Skills & Experience",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Front-End Development",
+        description: <>Proficient in HTML5, CSS3, JavaScript, and PHP. Experience with CodeIgniter 3 framework for MVC-based web development and creating dynamic user interfaces.</>,
+        images: [],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Database & Back-End",
+        description: <>Working knowledge of MySQL database management, including design, queries, and integration with web applications. Learning server-side development concepts.</>,
+        images: [],
+      },
+      {
+        title: "Python Programming",
+        description: <>Developed Python applications including calculator systems and automation scripts. Comfortable with Python fundamentals and problem-solving approaches.</>,
+        images: [],
+      },
+      {
+        title: "DevOps & Infrastructure",
+        description: <>Hands-on experience with Docker containerization, microservices architecture, CI/CD pipelines, and monitoring tools like Grafana, Prometheus, and Loki.</>,
+        images: [],
       },
     ],
   },

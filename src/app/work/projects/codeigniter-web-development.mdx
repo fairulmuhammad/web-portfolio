@@ -1,0 +1,221 @@
+---
+title: "Web Development with CodeIgniter 3"
+publishedAt: "2024-05-20"
+summary: "Full-stack web applications built using PHP CodeIgniter 3 framework, featuring MVC architecture, MySQL integration, and responsive design."
+image: "/images/projects/project-01/cover-02.jpg"
+---
+
+## Project Overview
+
+This collection of web development projects showcases my journey learning full-stack development using PHP and the CodeIgniter 3 framework during my studies at Universitas Amikom Yogyakarta.
+
+## Technical Stack
+
+### Back-End Technologies
+- **PHP 8.x**: Server-side scripting and business logic
+- **CodeIgniter 3**: MVC framework for structured development
+- **MySQL**: Relational database management
+- **Apache**: Web server configuration
+
+### Front-End Technologies  
+- **HTML5**: Semantic markup and structure
+- **CSS3**: Modern styling and responsive design
+- **JavaScript**: Client-side interactivity and validation
+- **Bootstrap**: Responsive UI framework
+
+## Key Projects
+
+### 1. **Student Management System**
+A comprehensive system for managing student data and academic records.
+
+**Features:**
+- Student registration and profile management
+- Course enrollment and grade tracking
+- Teacher dashboard for class management
+- Administrative reporting and analytics
+
+**Technical Implementation:**
+```php
+class Student extends CI_Controller {
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('Student_model');
+        $this->load->helper('url');
+    }
+    
+    public function register() {
+        $this->load->view('student/register');
+    }
+}
+```
+
+### 2. **E-Commerce Platform**
+Basic online shopping platform with product catalog and order management.
+
+**Features:**
+- Product catalog with categories and search
+- Shopping cart functionality
+- User authentication and profiles
+- Order processing and tracking
+- Admin panel for inventory management
+
+### 3. **Blog Management System**
+Content management system for creating and managing blog posts.
+
+**Features:**
+- Rich text editor for content creation
+- Category and tag management
+- Comment system with moderation
+- SEO-friendly URLs and meta tags
+
+## MVC Architecture Implementation
+
+### Model Layer
+```php
+class Student_model extends CI_Model {
+    public function get_students($limit = FALSE, $offset = FALSE) {
+        if ($limit) {
+            $this->db->limit($limit, $offset);
+        }
+        $query = $this->db->get('students');
+        return $query->result_array();
+    }
+}
+```
+
+### View Layer
+- Clean separation of presentation logic
+- Reusable template system
+- Responsive design implementation
+- Form validation and error handling
+
+### Controller Layer
+- Request handling and routing
+- Business logic coordination
+- Data validation and sanitization
+- Session and authentication management
+
+## Database Design
+
+### Key Concepts Learned
+- **Normalization**: Proper database structure to eliminate redundancy
+- **Relationships**: One-to-many and many-to-many table relationships
+- **Indexing**: Optimizing queries for better performance
+- **Constraints**: Ensuring data integrity with foreign keys
+
+### Sample Database Schema
+```sql
+CREATE TABLE students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id VARCHAR(20) UNIQUE NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE courses (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    course_code VARCHAR(10) UNIQUE NOT NULL,
+    course_name VARCHAR(100) NOT NULL,
+    credits INT NOT NULL
+);
+```
+
+## Security Implementation
+
+### Authentication & Authorization
+- **Session Management**: Secure user session handling
+- **Password Hashing**: Proper password encryption
+- **Role-Based Access**: Different user permission levels
+- **CSRF Protection**: Cross-site request forgery prevention
+
+### Data Validation
+- **Input Sanitization**: Cleaning user input data
+- **SQL Injection Prevention**: Using prepared statements
+- **XSS Protection**: Escaping output data
+- **File Upload Security**: Validating uploaded files
+
+## Responsive Design
+
+### Mobile-First Approach
+- Flexible grid systems using Bootstrap
+- Media queries for different screen sizes
+- Touch-friendly navigation and buttons
+- Optimized images and content loading
+
+### Cross-Browser Compatibility
+- Testing across different browsers
+- Graceful degradation for older browsers
+- Progressive enhancement strategies
+
+## Performance Optimization
+
+### Database Optimization
+- Query optimization and indexing
+- Connection pooling and caching
+- Lazy loading for large datasets
+
+### Front-End Optimization
+- CSS and JavaScript minification
+- Image compression and optimization
+- Caching strategies for static assets
+
+## Learning Outcomes
+
+### Technical Skills
+- **MVC Pattern**: Deep understanding of architectural patterns
+- **Database Design**: Relational database concepts and optimization
+- **Security Awareness**: Web application security best practices
+- **Responsive Design**: Mobile-first development approach
+
+### Development Practices
+- **Version Control**: Git workflow and collaboration
+- **Code Organization**: Clean, maintainable code structure
+- **Documentation**: Comprehensive project documentation
+- **Testing**: Manual testing and debugging techniques
+
+## Challenges Overcome
+
+### 1. **Database Performance**
+**Challenge**: Slow query performance with large datasets
+**Solution**: Implemented proper indexing and query optimization
+
+### 2. **Session Management**
+**Challenge**: User authentication across multiple pages
+**Solution**: Robust session handling and security measures
+
+### 3. **Responsive Design**
+**Challenge**: Consistent experience across devices
+**Solution**: Mobile-first approach with progressive enhancement
+
+## Future Improvements
+
+### Technical Enhancements
+- **API Development**: RESTful API creation for mobile integration
+- **Modern PHP**: Upgrading to newer PHP versions and frameworks
+- **Frontend Frameworks**: Integration with React or Vue.js
+- **Testing**: Automated unit and integration testing
+
+### Feature Additions
+- **Real-time Features**: WebSocket integration for live updates
+- **Payment Integration**: E-commerce payment gateway implementation
+- **Advanced Analytics**: User behavior tracking and reporting
+- **Multilingual Support**: Internationalization and localization
+
+## Reflection
+
+Working with CodeIgniter 3 provided an excellent foundation for understanding:
+- **Web Development Fundamentals**: HTTP, sessions, cookies, and security
+- **Framework Benefits**: How frameworks accelerate development
+- **Best Practices**: Code organization, security, and performance
+- **Problem-Solving**: Debugging and troubleshooting web applications
+
+This experience prepared me for modern web development frameworks and gave me a solid understanding of full-stack development principles.
+
+## Repository
+
+Complete project source code and documentation available on [GitHub](https://github.com/fairulmuhammad/codeigniter-projects), featuring:
+- Multiple project examples
+- Detailed setup instructions
+- Database schema and sample data
+- Deployment guides and best practices

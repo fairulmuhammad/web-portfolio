@@ -6,13 +6,13 @@ const routes = {
   "/about": true,
   "/work": true,
   "/blog": true,
-  "/gallery": true,
+  "/gallery": false, // Disabled until you have photos to showcase
 };
 
 // Enable password protection on selected routes
-// Set password in the .env file, refer to .env.example
+// Set password in the .env file, refer to .env.example  
 const protectedRoutes = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
+  // Add any routes you want to password protect
 };
 
 import { Geist } from "next/font/google";

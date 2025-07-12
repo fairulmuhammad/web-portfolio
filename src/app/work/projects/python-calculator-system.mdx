@@ -1,0 +1,113 @@
+---
+title: "Python Calculator System"
+publishedAt: "2024-03-15"
+summary: "A comprehensive calculator application built with Python, demonstrating object-oriented programming principles and user input validation."
+image: "/images/projects/project-01/cover-01.jpg"
+---
+
+## Project Overview
+
+This calculator system represents one of my foundational Python projects, showcasing core programming concepts and problem-solving skills developed during my studies at Universitas Amikom Yogyakarta.
+
+## Features
+
+### Core Functionality
+- **Basic Operations**: Addition, subtraction, multiplication, division
+- **Advanced Functions**: Power, square root, percentage calculations
+- **Memory Functions**: Store and recall previous calculations
+- **History Tracking**: Keep track of calculation history
+
+### Technical Implementation
+- **Object-Oriented Design**: Clean class structure for maintainable code
+- **Error Handling**: Robust input validation and exception handling
+- **User Interface**: Intuitive command-line interface with clear prompts
+- **Data Validation**: Comprehensive input sanitization and type checking
+
+## Code Architecture
+
+```python
+class Calculator:
+    def __init__(self):
+        self.memory = 0
+        self.history = []
+    
+    def add(self, a, b):
+        result = a + b
+        self.history.append(f"{a} + {b} = {result}")
+        return result
+    
+    # Additional methods for other operations...
+```
+
+## Key Learning Outcomes
+
+### Programming Concepts
+- **Object-Oriented Programming**: Learned to structure code using classes and methods
+- **Exception Handling**: Implemented try-catch blocks for robust error management
+- **Data Structures**: Used lists and dictionaries for history and memory functions
+- **Input Validation**: Developed skills in sanitizing and validating user input
+
+### Problem-Solving Skills
+- **Algorithm Design**: Breaking down complex calculations into simple steps
+- **User Experience**: Designing intuitive interfaces for better usability
+- **Code Organization**: Structuring code for readability and maintainability
+- **Testing**: Manual testing of edge cases and error conditions
+
+## Technical Challenges Solved
+
+### 1. **Division by Zero Handling**
+Implemented comprehensive error checking to prevent crashes:
+```python
+def divide(self, a, b):
+    try:
+        if b == 0:
+            raise ValueError("Cannot divide by zero")
+        return a / b
+    except ValueError as e:
+        print(f"Error: {e}")
+        return None
+```
+
+### 2. **Input Validation**
+Created robust input validation system:
+- Type checking for numeric inputs
+- Range validation for appropriate values
+- Format validation for different number systems
+
+### 3. **Memory Management**
+Implemented memory functions for storing and recalling values:
+- Store current result in memory
+- Recall previous calculations
+- Clear memory when needed
+
+## Future Enhancements
+
+### Planned Features
+- **GUI Interface**: Upgrade from command-line to graphical interface using tkinter
+- **Scientific Functions**: Add trigonometric and logarithmic functions
+- **History Export**: Save calculation history to files
+- **Unit Conversions**: Add measurement and currency conversion features
+
+### Technical Improvements
+- **Code Optimization**: Improve performance for complex calculations
+- **Unit Testing**: Implement automated testing framework
+- **Documentation**: Add comprehensive code documentation
+- **Packaging**: Create installable package for easy distribution
+
+## Reflection
+
+This project was instrumental in developing my Python programming skills. It taught me the importance of:
+- **Clean Code**: Writing readable and maintainable code
+- **Error Handling**: Anticipating and managing potential issues
+- **User-Centered Design**: Considering the end-user experience
+- **Iterative Development**: Continuously improving and refining the solution
+
+The calculator project laid the foundation for more complex Python applications and demonstrated my ability to translate mathematical concepts into functional code.
+
+## Repository
+
+The complete source code is available on my [GitHub repository](https://github.com/fairulmuhammad/python-calculator), showcasing:
+- Clean, commented code
+- Comprehensive README documentation
+- Example usage and screenshots
+- Future roadmap and contribution guidelines
