@@ -1,52 +1,151 @@
-# **Magic Portfolio by Once UI**
+# Personal Portfolio Website
 
-View the [demo here](https://demo.magic-portfolio.com).
+A modern, responsive portfolio website showcasing my journey as a Computer Science student at Universitas Amikom Yogyakarta, built with Next.js and the Once UI design system.
 
-![Magic Portfolio](https://demo.magic-portfolio.com/images/og/home.jpg)
+## 👨‍💻 About Me
 
+I'm **Fairul Muhammad**, a Computer Science student passionate about:
+- **Front-End Development**: HTML5, CSS3, JavaScript, PHP with CodeIgniter 3
+- **Back-End Development**: Database design with MySQL, API development
+- **Python Programming**: Calculator systems, automation scripts, and problem-solving
+- **DevOps**: Docker containerization, microservices, CI/CD pipelines, monitoring with Grafana, Prometheus, and Loki
 
-# **Getting started**
+## 🚀 Features
 
-Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
+- **Dark/Light Theme**: Automatic theme switching based on user preference
+- **Project Showcase**: Detailed case studies of my development projects
+- **Technical Blog**: Articles about my learning journey and technical insights
+- **Modern Stack**: Built with Next.js 15, React 19, and TypeScript
 
-**1. Clone the repository**
+## 🛠️ Technology Stack
+
+### Frontend
+- **Next.js 15** - React framework for production
+- **React 19** - JavaScript library for building user interfaces
+- **TypeScript** - Typed JavaScript for better development experience
+- **SCSS Modules** - Styled components with CSS modules
+- **Once UI** - Modern design system
+
+### Development Tools
+- **Git** - Version control
+- **VS Code** - Development environment
+- **npm** - Package management
+
+## 📝 Projects Featured
+
+### 1. Python Calculator System
+- Object-oriented programming implementation
+- Error handling and input validation
+- Memory functions and calculation history
+- **Technologies**: Python, OOP principles
+
+### 2. Web Development with CodeIgniter 3
+- Full-stack web applications using MVC architecture
+- MySQL database integration
+- User authentication and session management
+- **Technologies**: PHP, CodeIgniter 3, MySQL, HTML5, CSS3, JavaScript
+
+### 3. DevOps Infrastructure Project
+- Microservices architecture with Docker
+- CI/CD pipeline implementation
+- Monitoring stack with Grafana, Prometheus, and Loki
+- **Technologies**: Docker, Docker Compose, Grafana, Prometheus, Loki
+
+## 🎓 Education
+
+**Universitas Amikom Yogyakarta**  
+Bachelor's Degree in Computer Science (Teknik Informatika)  
+*2022 - Present*
+
+## 📧 Contact
+
+- **Email**: muhammadfairul13@gmail.com
+- **GitHub**: [fairulmuhammad](https://github.com/fairulmuhammad)
+- **LinkedIn**: [Muhammad Fairul](https://www.linkedin.com/in/muhammad-fairul-b5aa37312/)
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/fairulmuhammad/web-portfolio.git
+cd web-portfolio
 ```
-git clone https://github.com/once-ui-system/magic-portfolio.git
-```
 
-**2. Install dependencies**
-```
+2. Install dependencies:
+```bash
 npm install
 ```
 
-**3. Run dev server**
-```
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**4. Edit config**
-```
-src/app/resources/config
-```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-**5. Edit content**
-```
-src/app/resources/content
-```
+### Build for Production
 
-**6. Create blog posts / projects**
-```
-Add a new .mdx file to src/app/blog/posts or src/app/work/projects
+```bash
+npm run build
+npm start
 ```
 
-# **Documentation**
+## 📁 Project Structure
 
-Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
+```
+├── src/
+│   ├── app/
+│   │   ├── blog/posts/          # Blog articles
+│   │   ├── work/projects/       # Project case studies
+│   │   └── resources/           # Content configuration
+│   ├── components/              # Reusable React components
+│   └── once-ui/                 # Design system components
+├── public/
+│   └── images/                  # Static images and assets
+└── README.md
+```
 
-# **Features**
+## 🔧 Customization
 
-## **Once UI**
-- All tokens, components & features of [Once UI](https://once-ui.com)
+### Adding New Projects
+1. Create a new `.mdx` file in `src/app/work/projects/`
+2. Follow the existing project structure
+3. Add project images to `public/images/projects/`
+
+### Adding Blog Posts
+1. Create a new `.mdx` file in `src/app/blog/posts/`
+2. Include proper frontmatter (title, date, summary)
+3. Write your content using Markdown
+
+### Updating Personal Information
+Edit `src/app/resources/content.js` to update:
+- Personal details
+- Social media links
+- Skills and experience
+- Project descriptions
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- **Once UI** - For the beautiful design system
+- **Universitas Amikom Yogyakarta** - For the educational foundation
+- **Open Source Community** - For the tools and inspiration
+
+---
+
+⭐ **Star this repository if you found it helpful!**
+
+*Built with ❤️ by Fairul Muhammad*
 
 ## **SEO**
 - Automatic open-graph and X image generation with next/og
